@@ -22,11 +22,15 @@ set(SOURCES
   src/main.cpp
   src/emulator.cpp
   src/io.cpp
+  src/window.cpp
   )
+
+find_package(SDL2 REQUIRED)
 
 #add the executable
 add_executable(chip-8 ${SOURCES})
 
-#include all header files in dir include
-target_include_directories(chip-8 PUBLIC include)
+target_link_libraries(chip-8 PRIVATE SDL2::SDL2)
 
+#include all header files in dir include
+target_include_directories(chip-8 PRIVATE include)

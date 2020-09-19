@@ -39,13 +39,10 @@ std::byte *chip8::io::readProgram(const char *filename)
           }
           address = address << 4 | hex2byte(c);
         }
-        printf("address %x: ", address);
       } else if(c == '\n'){
         address = INT32_MAX;
-        printf("\n");
       } else {
         memory[address] = byte(hex2byte(c) << 4 | hex2byte(getc(fp)));
-        printf("%x ", memory[address]);
         address++;
       }
 
