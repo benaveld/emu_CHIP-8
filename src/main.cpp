@@ -1,13 +1,17 @@
 #include <cstdio>
-#include <cstddef>
+#include <stdexcept>
 #include <iostream>
 
 #include "definitions.hpp"
 #include "io.hpp"
 #include "emulator.hpp"
 
-void printMemoryDump(std::byte *memory, int start, int end)
+void printMemoryDump(unsigned char *memory, int start, int end)
 {
+    if(start > end){
+        throw std::invalid_argument("printMemoryDumt start is biger then the end\n");
+    }
+
     for (int i = start; i < end; i += 16)
     {
         printf("%04x: ", i);
@@ -27,14 +31,26 @@ int main(int argc, char const *argv[])
         return 1;
     }
 
-    std::byte *data = chip8::io::readProgram(argv[1]);
+    unsigned char *data = chip8::io::readProgram(argv[1]);
 
-    printMemoryDump(data, 0x0200, 0x0230);
 
     chip8::emulator emu(data);
     emu.start();
-    int c;
-    std::cin >> c; 
+
+    printMemoryDump(emu.m_memory, 0x0200, 0x0230);
+
+    printMemoryDump(emu.m_memory, 0x500, 0x501);
+
+    for(int i = 0; i < 16; i++){
+        printf("%02x ", emu.m_variables[i]);
+    }
+    printf("\n");
+
+    printf("I = %x\n", emu.m_I);
+
+    char n[50];
+    std::cin >> n;
+
     delete[] data;
 
     return 0;

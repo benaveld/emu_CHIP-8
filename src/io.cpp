@@ -17,9 +17,9 @@ unsigned char hex2byte(char input)
   throw std::invalid_argument("Invalid input string");
 }
 
-std::byte *chip8::io::readProgram(const char *filename)
+unsigned char *chip8::io::readProgram(const char *filename)
 {
-  std::byte *memory = new std::byte[chip8MemorySize];
+  unsigned char *memory = new unsigned char[chip8MemorySize];
 
   int address = INT32_MAX;
   char c;
@@ -42,7 +42,7 @@ std::byte *chip8::io::readProgram(const char *filename)
       } else if(c == '\n'){
         address = INT32_MAX;
       } else {
-        memory[address] = byte(hex2byte(c) << 4 | hex2byte(getc(fp)));
+        memory[address] = hex2byte(c) << 4 | hex2byte(getc(fp));
         address++;
       }
 

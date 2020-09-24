@@ -17,6 +17,8 @@ namespace chip8
 
         void clearScreen();
 
+        void drawSprite(unsigned int I, unsigned char x, unsigned char y, unsigned char n, unsigned char *memory, unsigned char *VF);
+
         void render();
 
     private:
@@ -24,6 +26,6 @@ namespace chip8
         SDL_Renderer *renderer;
 
         const static unsigned short NR_OF_PIXLES = CHIP8_SCREEN_HEIGHT * CHIP8_SCREEN_WIDTH / 8;
-        unsigned char pixles[NR_OF_PIXLES] = {0};
+        unsigned char pixles[NR_OF_PIXLES + 1] = {0};
     };
 } // namespace chip8

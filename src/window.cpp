@@ -15,6 +15,24 @@ void Window::clearScreen()
     }
 }
 
+void Window::drawSprite(unsigned int I, unsigned char x, unsigned char y, unsigned char n, unsigned char memory[], unsigned char *VF)
+{
+    *VF = 0;
+    for (int j = 0; j < n; j++)
+    {
+        unsigned int location = floor(x / 8) + (j + y) * CHIP8_SCREEN_WIDTH / 8;
+        unsigned short section = pixles[location] | (pixles[location + 1] << 8);
+        unsigned short spriteSection = memory[I+j] << (x % 8);
+        if (section & spriteSection > 0)
+        {
+            *VF = 1;
+        }
+        section = section ^ spriteSection;
+        pixles[location] = section & 0xff;
+        pixles[location+1] = section >> 8;
+    }
+}
+
 void Window::render()
 {
     SDL_Rect rect{0, 0, CHIP8_SCREEN_SCALER, CHIP8_SCREEN_SCALER};
