@@ -8,7 +8,8 @@
 
 void printMemoryDump(unsigned char *memory, int start, int end)
 {
-    if(start > end){
+    if (start > end)
+    {
         throw std::invalid_argument("printMemoryDumt start is biger then the end\n");
     }
 
@@ -33,21 +34,27 @@ int main(int argc, char const *argv[])
 
     unsigned char *data = chip8::io::readProgram(argv[1]);
 
-
     chip8::emulator emu(data);
-    emu.start();
+    int exitCode = emu.start();
 
-    printMemoryDump(emu.m_memory, 0x0200, 0x0230);
-
-    printMemoryDump(emu.m_memory, 0x500, 0x501);
-
-    for(int i = 0; i < 16; i++){
-        printf("%02x ", emu.m_variables[i]);
+    if (exitCode == 0)
+    {
+        printf("Done\n");
     }
-    printf("\n");
+    else
+    {
+        printMemoryDump(emu.m_memory, 0x0200, 0x0230);
 
-    printf("I = %x\n", emu.m_I);
+        printMemoryDump(emu.m_memory, 0x500, 0x501);
 
+        for (int i = 0; i < 16; i++)
+        {
+            printf("%02x ", emu.m_variables[i]);
+        }
+        printf("\n");
+
+        printf("I = %x\n", emu.m_I);
+    }
     char n[50];
     std::cin >> n;
 

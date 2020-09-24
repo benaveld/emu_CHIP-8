@@ -27,6 +27,34 @@ emulator::emulator(unsigned char *a_memory) : m_memory(a_memory)
     m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 2 + 3] = 0b0010;
     m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 2 + 4] = 0b1111;
 
+    // 3
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 3] = 0b1110;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 3 + 1] = 0b1000;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 3 + 2] = 0b1100;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 3 + 3] = 0b1000;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 3 + 4] = 0b1110;
+
+    // 4
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 4] = 0b1001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 4 + 1] = 0b1001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 4 + 2] = 0b1111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 4 + 3] = 0b1000;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 4 + 4] = 0b1000;
+
+    // 5
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 5] = 0b1111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 5 + 1] = 0b1000;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 5 + 2] = 0b0110;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 5 + 3] = 0b0001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 5 + 4] = 0b1111;
+
+    // 6
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 6] = 0b0110;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 6 + 1] = 0b1000;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 6 + 2] = 0b1111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 6 + 3] = 0b1001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 6 + 4] = 0b1111;
+
     // 7
     m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 7] = 0b1111;
     m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 7 + 1] = 0b1000;
@@ -40,6 +68,55 @@ emulator::emulator(unsigned char *a_memory) : m_memory(a_memory)
     m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 8 + 2] = 0b0110;
     m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 8 + 3] = 0b1001;
     m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 8 + 4] = 0b0110;
+
+    // 9
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 9] = 0b1111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 9 + 1] = 0b1001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 9 + 2] = 0b1111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 9 + 3] = 0b1010;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 9 + 4] = 0b1111;
+
+    // a
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xa] = 0b0110;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xa + 1] = 0b1001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xa + 2] = 0b1111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xa + 3] = 0b1001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xa + 4] = 0b1001;
+
+    // b
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xb] = 0b0111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xb + 1] = 0b1001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xb + 2] = 0b0111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xb + 3] = 0b1001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xb + 4] = 0b0111;
+
+    // c
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xc] = 0b1111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xc + 1] = 0b1000;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xc + 2] = 0b1000;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xc + 3] = 0b1000;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xc + 4] = 0b1111;
+
+    // d
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xd] = 0b0111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xd + 1] = 0b1001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xd + 2] = 0b1001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xd + 3] = 0b1001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xd + 4] = 0b0111;
+
+    // e
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xe] = 0b1111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xe + 1] = 0b0001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xe + 2] = 0b0111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xe + 3] = 0b0001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xe + 4] = 0b1111;
+
+    // f
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xf] = 0b1111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xf + 1] = 0b0001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xf + 2] = 0b0111;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xf + 3] = 0b0001;
+    m_memory[FONT_ADDRESS + FONT_ADDRESS_STEP * 0xf + 4] = 0b0001;
 }
 
 int emulator::codef()
